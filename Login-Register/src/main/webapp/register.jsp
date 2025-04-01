@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form action="RegisterServlet" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>   
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <%-- Display error message if username/email already exists --%>
+        <% String error = request.getParameter("error");
+           if ("1".equals(error)) { %>
+            <p style="color: red;">Username or Email already exists. Please choose another.</p>
+        <% } %>
+    </div>
+</body>
+</html>
